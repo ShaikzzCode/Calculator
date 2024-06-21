@@ -1,0 +1,189 @@
+@font-face {
+    font-family: Quicksand;
+    src: url('./Quicksand.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand',sans-serif;
+    font-weight: bold;
+}
+
+:root {
+    --bodyBgColor: #b4b6c2;
+    --bodyBgGradColor: radial-gradient(#fff, #b4b6c2);
+    --calcBodyBgColor: #282b34;
+    --buttonLightGray: #495568;
+    --buttonDeepGray: #3e4456;
+    --buttonOrange: #f08600;
+    --white: #fff;
+    --black: #000;
+}
+html{
+    background-color: var(--bodyBgColor);
+}
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bodyBgColor);
+    background: var(--bodyBgGradColor);
+}
+
+.calculator_body {
+    width: 300px;
+    height: 550px;
+    background-color: var(--black);
+    /* background: var(--calcBodyBgColor); */
+    background: linear-gradient(-45deg, #151621, #383c49);
+    border-radius: 30px;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.699);
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    backdrop-filter: blur(10px);
+    transition: scale 0.2s ease-in-out;
+}
+
+.calculator_body:hover{
+    scale: 1.01;
+}
+
+.calculator_body .buttons_Sec {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 5px;
+    padding: 10px;
+    margin-bottom: 30px;
+    height: 320px;
+}
+
+.buttons_Sec button {
+    /* aspect-ratio: 1 / 1; */
+    border-radius: 20px;
+    /* height: 60px; */
+    overflow: hidden;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: var(--white);
+    font-size: 20px;
+    background-color: var(--buttonDeepGray);
+}
+
+button.default {
+    background: linear-gradient(-45deg, #748195, #3a3c48);
+    box-shadow: 0 0px 20px rgba(0, 0, 0, 0.308),
+        inset 2px 2px 5px rgba(255, 255, 255, 0.303),
+        inset -5px -5px 15px rgba(0, 0, 0, 0.159);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+
+button.red img{
+    width: 20px;
+    height: 20px;
+}
+
+button.default:hover {
+    background: linear-gradient(-45deg, #3e4857, #53576a);
+}
+
+button.lightGray {
+    background: linear-gradient(-45deg, #71a3ed, var(--buttonLightGray));
+    box-shadow: 0 0px 20px rgba(0, 0, 0, 0.308),
+        inset 2px 2px 5px rgba(255, 255, 255, 0.303),
+        inset -5px -5px 15px rgba(0, 0, 0, 0.159);
+}
+
+button.lightGray:hover {
+    background: linear-gradient(-45deg, #567eba, #3a5782);
+}
+
+button.orange {
+    background: linear-gradient(-45deg, rgb(255, 119, 0), #ffcd42);
+    box-shadow: 0 0px 20px rgba(0, 0, 0, 0.308),
+        inset 2px 2px 5px rgba(255, 255, 255, 0.463),
+        inset 5px 5px 15px rgba(251, 84, 0, 0.659);
+}
+
+button.orange:hover {
+    background: linear-gradient(-45deg, rgb(234, 186, 12), #ff7b42);
+}
+
+button.red {
+    background: linear-gradient(-45deg, rgb(255, 0, 0), #ffcd42);
+    box-shadow: 0 0px 20px rgba(0, 0, 0, 0.308),
+        inset 2px 2px 5px rgba(255, 255, 255, 0.463),
+        inset 5px 5px 15px rgba(251, 84, 0, 0.659);
+}
+
+button.red:hover {
+    background: linear-gradient(-45deg, rgb(234, 186, 12), #ff2727);
+}
+
+.keyEqual {
+    grid-column: -2;
+    grid-row: 4 / span 2;
+}
+
+
+
+.results_Input_Sec {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
+    padding: 10px 20px;
+}
+
+.results_Input_Sec .calculatedVlaue {
+    font-size: 16px;
+    opacity: 0.5;
+    color: var(--bodyBgColor);
+}
+
+.results_Input_Sec .resultValue {
+    font-size: 40px;
+    color: var(--white);
+    outline: none;
+    border: none;
+}
+
+.footer{
+    width: 100%;
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+}
+.footer a{
+    color: red;
+    text-decoration: none;
+}
+
+
+
+
+@media screen and (max-width: 425px) {
+    .calculator_body{
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+    }
+    .calculator_body:hover{
+        scale: 1;
+    }
+    .calculator_body .buttons_Sec {
+        height: 420px;
+    }
+    .buttons_Sec button {
+        font-size: 22px;
+    }
+    .footer{
+        color: var(--white);
+    }
+}
